@@ -12,4 +12,4 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 ### Improvements:
 
-* get library set up
+* Initial Release
