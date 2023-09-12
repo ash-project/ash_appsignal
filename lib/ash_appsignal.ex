@@ -36,7 +36,7 @@ defmodule AshAppsignal do
   end
 
   @impl Ash.Tracer
-  def get_span_context() do
+  def get_span_context do
     %{
       appsignal_span: Appsignal.Tracer.current_span() || Process.get(:parent_appsignal_span)
     }
