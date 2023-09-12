@@ -18,6 +18,7 @@ defmodule AshAppsignal do
     :ok
   end
 
+  @impl Ash.Tracer
   def trace_type?(:custom) do
     true
   end

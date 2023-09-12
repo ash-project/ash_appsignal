@@ -1,21 +1,6 @@
-# AshAppsignal
+# Trace with Appsignal
 
-A drop in Ash.Tracer implementation for Appsignal. Follow the appsignal setup
-before setting this up.
-
-## Setup
-
-Add the dependency to your application
-
-```elixir
-def deps do
-  [
-    {:ash_appsignal, "~> 0.1.0"}
-  ]
-end
-```
-
-Add this to your config:
+After installing the `ash_appsignal` dependency, add this to your config:
 
 ```elixir
 # config supports a list, so this can be combined with other tracers
@@ -39,5 +24,3 @@ config :ash_appsignal,
     :preparation
   ]
 ```
-
-Thats it! Additional traces & spans from Ash will be displayed in appsignal.
