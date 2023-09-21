@@ -13,7 +13,7 @@ defmodule AshAppsignal do
 
     appsignal_span
     |> Appsignal.Span.set_name(name)
-    |> Appsignal.Span.set_attribute("appsignal:category", to_string(type))
+    |> Appsignal.Span.set_attribute("appsignal:category", "#{type}.ash")
 
     :ok
   end
