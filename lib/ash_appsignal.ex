@@ -93,8 +93,6 @@ defmodule AshAppsignal do
     end
   end
 
-  defp register(nil), do: nil
-
   defp insert(span) do
     try do
       :ets.insert(@table, span)
