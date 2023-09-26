@@ -4,6 +4,9 @@ defmodule AshAppsignal do
   """
 
   use Ash.Tracer
+  require Appsignal.Utils
+  @monitor Appsignal.Utils.compile_env(:appsignal, :appsignal_monitor, Appsignal.Monitor)
+  @table :"$appsignal_registry"
 
   @impl Ash.Tracer
   def start_span(type, name) do
@@ -48,8 +51,10 @@ defmodule AshAppsignal do
 
   @impl Ash.Tracer
   def set_span_context(%{appsignal_span: appsignal_span}) do
-    # set parent span somehow
-    Process.put(:parent_appsignal_span, appsignal_span)
+    if appsignal_span do
+      register(%{appsignal_span | pid: self()})
+      Process.put(:parent_appsignal_span, appsignal_span)
+    end
   end
 
   @impl Ash.Tracer
@@ -79,5 +84,22 @@ defmodule AshAppsignal do
 
   defp current_appsignal_span do
     Appsignal.Tracer.current_span() || Process.get(:parent_appsignal_span)
+  end
+
+  defp register(%Appsignal.Span{pid: pid} = span) do
+    if insert({pid, span}) do
+      @monitor.add()
+      span
+    end
+  end
+
+  defp register(nil), do: nil
+
+  defp insert(span) do
+    try do
+      :ets.insert(@table, span)
+    rescue
+      ArgumentError -> nil
+    end
   end
 end
