@@ -5,7 +5,7 @@ defmodule AshAppsignal.MixProject do
   A drop in Ash.Tracer implementation for Appsignal.
   """
 
-  @version "0.1.1"
+  @version "0.1.2"
 
   def project do
     [

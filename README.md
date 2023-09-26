@@ -10,7 +10,7 @@ Add the dependency to your application
 ```elixir
 def deps do
   [
-    {:ash_appsignal, "~> 0.1.1"}
+    {:ash_appsignal, "~> 0.1.2"}
   ]
 end
 ```

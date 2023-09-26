@@ -5,6 +5,17 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.1.2](https://github.com/ash-project/ash_appsignal/compare/v0.1.1...v0.1.2) (2023-09-26)
+
+
+
+
+### Improvements:
+
+* register appsignal span  for pid
+
+* default to fewer span types, don't send metadata
+
 ## [v0.1.1](https://github.com/ash-project/ash_appsignal/compare/v0.1.0...v0.1.1) (2023-09-21)
 
 
