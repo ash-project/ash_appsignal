@@ -21,16 +21,16 @@ Add this to your config:
 # config supports a list, so this can be combined with other tracers
 config :ash, :tracer, [AshAppsignal]
 
-# we suggest using this list. It trims down some noisy traces that Ash emits
+# Optionally configure span types to be sent to appsignal. The default is
+# [:custom, :action, :flow]
 config :ash_appsignal,
   trace_types: [
     :custom,
     :action,
-    :custom_flow_step,
-    :flow,
-    :query,
-    :preparation
+    :flow
   ]
 ```
+
+For all available types see the documentation for `Ash.Tracer`
 
 Thats it! Additional traces & spans from Ash will be displayed in appsignal.
