@@ -27,54 +27,21 @@ defmodule AshAppsignal.MixProject do
     ]
   end
 
-  defp extras() do
-    "documentation/**/*.md"
-    |> Path.wildcard()
-    |> Enum.map(fn path ->
-      title =
-        path
-        |> Path.basename(".md")
-        |> String.split(~r/[-_]/)
-        |> Enum.map(&String.capitalize/1)
-        |> Enum.join(" ")
-        |> case do
-          "F A Q" ->
-            "FAQ"
-
-          other ->
-            other
-        end
-
-      {String.to_atom(path),
-       [
-         title: title
-       ]}
-    end)
-  end
-
-  defp groups_for_extras() do
-    "documentation/*"
-    |> Path.wildcard()
-    |> Enum.map(fn folder ->
-      name =
-        folder
-        |> Path.basename()
-        |> String.split(~r/[-_]/)
-        |> Enum.map(&String.capitalize/1)
-        |> Enum.join(" ")
-
-      {name, folder |> Path.join("**") |> Path.wildcard()}
-    end)
-  end
-
   defp docs do
     [
-      main: "AshGraphql",
+      main: "AshAppsignal",
       source_ref: "v#{@version}",
       logo: "logos/small-logo.png",
       extra_section: "GUIDES",
-      extras: extras(),
-      groups_for_extras: groups_for_extras(),
+      extras: [
+        "documentation/tutorials/trace-with-appsignal.md"
+      ],
+      groups_for_extras: [
+        Tutorials: ~r'documentation/tutorials',
+        "How To": ~r'documentation/how_to',
+        Topics: ~r'documentation/topics',
+        DSLs: ~r'documentation/dsls'
+      ],
       groups_for_modules: [
         AshAppsignal: [
           AshAppsignal
