@@ -74,7 +74,6 @@ defmodule AshAppsignal.MixProject do
       {:dialyxir, ">= 0.0.0", only: [:dev, :test], runtime: false},
       {:sobelow, ">= 0.0.0", only: [:dev, :test], runtime: false},
       {:git_ops, "~> 2.5", only: [:dev, :test]},
-      {:excoveralls, "~> 0.13", only: [:dev, :test]},
       {:mix_test_watch, "~> 1.0", only: :dev, runtime: false},
       {:mix_audit, ">= 0.0.0", only: [:dev, :test], runtime: false}
     ]
