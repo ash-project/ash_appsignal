@@ -2,7 +2,7 @@ defmodule AshAppsignal.MixProject do
   use Mix.Project
 
   @description """
-  A drop in Ash.Tracer implementation for Appsignal.
+  The AppSignal APM integration for Ash Framework
   """
 
   @version "0.1.2"
@@ -34,7 +34,7 @@ defmodule AshAppsignal.MixProject do
       logo: "logos/small-logo.png",
       extra_section: "GUIDES",
       extras: [
-        "documentation/tutorials/trace-with-appsignal.md"
+        "documentation/tutorials/getting-started-with-ash-appsignal.md"
       ],
       groups_for_extras: [
         Tutorials: ~r'documentation/tutorials',
