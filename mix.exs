@@ -34,13 +34,17 @@ defmodule AshAppsignal.MixProject do
       logo: "logos/small-logo.png",
       extra_section: "GUIDES",
       extras: [
-        "documentation/tutorials/getting-started-with-ash-appsignal.md"
+        "documentation/tutorials/getting-started-with-ash-appsignal.md",
+        "CHANGELOG.md"
       ],
       groups_for_extras: [
         Tutorials: ~r'documentation/tutorials',
         "How To": ~r'documentation/how_to',
         Topics: ~r'documentation/topics',
-        DSLs: ~r'documentation/dsls'
+        DSLs: ~r'documentation/dsls',
+        "About AshAppsignal": [
+          "CHANGELOG.md"
+        ]
       ],
       groups_for_modules: [
         AshAppsignal: [
