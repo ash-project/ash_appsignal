@@ -5,6 +5,11 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.1.3](https://github.com/ash-project/ash_appsignal/compare/v0.1.2...v0.1.3) (2024-05-17)
+
+
+
+
 ## [v0.1.2](https://github.com/ash-project/ash_appsignal/compare/v0.1.1...v0.1.2) (2023-09-26)
 
 
