@@ -28,17 +28,12 @@ config :ash_appsignal,
   trace_types: [
     :custom,
     :action,
-    :changeset,
-    :validation,
-    :change,
     :before_transaction,
     :before_action,
     :after_transaction,
     :after_action,
     :custom_flow_step,
-    :flow,
-    :query,
-    :preparation
+    :flow
   ]
 ```
 
