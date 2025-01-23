@@ -72,6 +72,7 @@ defmodule AshAppsignal.MixProject do
     [
       {:ash, ash_version("~> 3.0")},
       {:appsignal, "~> 2.0"},
+      {:igniter, "~> 0.5", only: [:dev, :test]},
       {:ex_doc, "~> 0.22", only: [:dev, :test], runtime: false},
       {:ex_check, "~> 0.12", only: [:dev, :test]},
       {:credo, ">= 0.0.0", only: [:dev, :test], runtime: false},
