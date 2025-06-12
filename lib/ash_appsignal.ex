@@ -31,7 +31,7 @@ defmodule AshAppsignal do
   end
 
   def trace_type?(type) do
-    allowed_types = Application.get_env(:ash_appsignal, :trace_types) || [:custom, :action, :flow]
+    allowed_types = Application.get_env(:ash_appsignal, :trace_types) || [:custom, :action]
 
     is_nil(allowed_types) || Enum.member?(allowed_types, type)
   end
