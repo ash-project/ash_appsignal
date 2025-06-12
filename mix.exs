@@ -14,6 +14,7 @@ defmodule AshAppsignal.MixProject do
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      aliases: aliases(),
       package: package(),
       docs: docs(),
       description: @description
@@ -91,5 +92,11 @@ defmodule AshAppsignal.MixProject do
       "main" -> [git: "https://github.com/ash-project/ash.git"]
       version -> "~> #{version}"
     end
+  end
+
+  defp aliases do
+    [
+      credo: "credo --strict"
+    ]
   end
 end

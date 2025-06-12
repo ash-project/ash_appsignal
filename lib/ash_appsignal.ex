@@ -94,10 +94,8 @@ defmodule AshAppsignal do
   end
 
   defp insert(span) do
-    try do
-      :ets.insert(@table, span)
-    rescue
-      ArgumentError -> nil
-    end
+    :ets.insert(@table, span)
+  rescue
+    ArgumentError -> nil
   end
 end
