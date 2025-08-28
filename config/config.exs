@@ -2,9 +2,9 @@ import Config
 
 if Mix.env() == :dev do
   config :git_ops,
-    mix_project: AshAppsignal.MixProject,
+    mix_project: AshHoneybadger.MixProject,
     changelog_file: "CHANGELOG.md",
-    repository_url: "https://github.com/ash-project/ash_appsignal",
+    repository_url: "https://github.com/ash-project/ash_honeybadger",
     # Instructs the tool to manage your mix version in your `mix.exs` file
     # See below for more information
     manage_mix_version?: true,

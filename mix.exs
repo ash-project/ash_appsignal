@@ -1,15 +1,15 @@
-defmodule AshAppsignal.MixProject do
+defmodule AshHoneybadger.MixProject do
   use Mix.Project
 
   @description """
-  The AppSignal APM integration for Ash Framework
+  The Honeybadger error tracking and events integration for Ash Framework
   """
 
   @version "0.1.3"
 
   def project do
     [
-      app: :ash_appsignal,
+      app: :ash_honeybadger,
       version: @version,
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
@@ -30,12 +30,12 @@ defmodule AshAppsignal.MixProject do
 
   defp docs do
     [
-      main: "AshAppsignal",
+      main: "AshHoneybadger",
       source_ref: "v#{@version}",
       logo: "logos/small-logo.png",
       extra_section: "GUIDES",
       extras: [
-        "documentation/tutorials/getting-started-with-ash-appsignal.md",
+        "documentation/tutorials/getting-started-with-ash-honeybadger.md",
         "CHANGELOG.md"
       ],
       groups_for_extras: [
@@ -43,13 +43,13 @@ defmodule AshAppsignal.MixProject do
         "How To": ~r'documentation/how_to',
         Topics: ~r'documentation/topics',
         DSLs: ~r'documentation/dsls',
-        "About AshAppsignal": [
+        "About AshHoneybadger": [
           "CHANGELOG.md"
         ]
       ],
       groups_for_modules: [
-        AshAppsignal: [
-          AshAppsignal
+        AshHoneybadger: [
+          AshHoneybadger
         ],
         Internals: ~r/.*/
       ]
@@ -58,12 +58,12 @@ defmodule AshAppsignal.MixProject do
 
   defp package do
     [
-      name: :ash_appsignal,
+      name: :ash_honeybadger,
       licenses: ["MIT"],
       files: ~w(lib .formatter.exs mix.exs README* LICENSE*
       CHANGELOG* documentation),
       links: %{
-        GitHub: "https://github.com/ash-project/ash_appsignal"
+        GitHub: "https://github.com/ash-project/ash_honeybadger"
       }
     ]
   end
@@ -72,7 +72,7 @@ defmodule AshAppsignal.MixProject do
   defp deps do
     [
       {:ash, ash_version("~> 3.0")},
-      {:appsignal, "~> 2.0"},
+      {:honeybadger, "~> 0.15"},
       {:igniter, "~> 0.5", only: [:dev, :test]},
       {:ex_doc, "~> 0.22", only: [:dev, :test], runtime: false},
       {:ex_check, "~> 0.12", only: [:dev, :test]},
