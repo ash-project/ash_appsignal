@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2020 Zach Daniel
+#
+# SPDX-License-Identifier: MIT
+
 [
   ## all available options with default values (see `mix check` docs for description)
   # parallel: true,
@@ -15,5 +19,6 @@
     # {:my_mix_task, command: "mix release", env: %{"MIX_ENV" => "prod"}},
     # {:my_arbitrary_tool, command: "npm test", cd: "assets"},
     # {:my_arbitrary_script, command: ["my_script", "argument with spaces"], cd: "scripts"}
+    {:reuse, command: ["pipx", "run", "reuse", "lint", "-q"]}
   ]
 ]
