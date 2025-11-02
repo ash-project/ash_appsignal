@@ -9,7 +9,7 @@ defmodule AshAppsignal.MixProject do
   The AppSignal APM integration for Ash Framework
   """
 
-  @version "0.1.3"
+  @version "0.2.0"
 
   def project do
     [

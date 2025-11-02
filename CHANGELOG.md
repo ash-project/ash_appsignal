@@ -11,6 +11,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.2.0](https://github.com/ash-project/ash_appsignal/compare/v0.1.3...v0.2.0) (2025-11-02)
+
+
+
+
+### Features:
+
+* extract single errors for much clearer AppSignal reporting by Zach Daniel
+
 ## [v0.1.3](https://github.com/ash-project/ash_appsignal/compare/v0.1.2...v0.1.3) (2024-05-17)
 
 
