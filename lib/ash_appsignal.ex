@@ -76,7 +76,22 @@ defmodule AshAppsignal do
     end
 
     try do
-      Appsignal.Span.add_error(current_appsignal_span(), error, opts[:stacktrace])
+      error =
+        error
+        |> Ash.Error.to_error_class()
+        |> case do
+          %Ash.Error.Unknown{} = unknown -> unknown
+          %{errors: [error]} -> error
+          error -> error
+        end
+
+      stacktrace =
+        case error do
+          %{stacktrace: %{stacktrace: stacktrace}} -> stacktrace
+          _other -> opts[:stacktrace]
+        end
+
+      Appsignal.Span.add_error(current_appsignal_span(), error, stacktrace)
     after
       if needs_span? do
         stop_span()
