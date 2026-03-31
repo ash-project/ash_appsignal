@@ -61,6 +61,8 @@ defmodule AshAppsignal do
       register(%{appsignal_span | pid: self()})
       Process.put(:parent_appsignal_span, appsignal_span)
     end
+
+    :ok
   end
 
   @impl Ash.Tracer
