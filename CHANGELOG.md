@@ -11,6 +11,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.2.2](https://github.com/ash-project/ash_appsignal/compare/v0.2.1...v0.2.2) (2026-03-31)
+
+
+
+
+### Bug Fixes:
+
+* ensure set_span_context/1 always returns :ok (#140) by Jechol Lee
+
 ## [v0.2.1](https://github.com/ash-project/ash_appsignal/compare/v0.2.0...v0.2.1) (2026-03-31)
 
 
