@@ -44,6 +44,8 @@ defmodule AshAppsignal do
   def stop_span do
     Appsignal.Tracer.current_span()
     |> Appsignal.Tracer.close_span()
+
+    :ok
   end
 
   @impl Ash.Tracer
