@@ -11,6 +11,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.2.1](https://github.com/ash-project/ash_appsignal/compare/v0.2.0...v0.2.1) (2026-03-31)
+
+
+
+
+### Bug Fixes:
+
+* ensure stop_span/0 always returns :ok (#139) by Jechol Lee
+
 ## [v0.2.0](https://github.com/ash-project/ash_appsignal/compare/v0.1.3...v0.2.0) (2025-11-02)
 
 
