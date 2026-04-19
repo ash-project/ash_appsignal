@@ -33,7 +33,10 @@ config :ash, :tracer, [AshAppsignal]
 config :ash_appsignal,
   trace_types: [
     :custom,
-    :action
+    :action,
+    :bulk_create,
+    :bulk_update,
+    :bulk_destroy
   ]
 ```
 
