@@ -11,6 +11,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.2.4](https://github.com/ash-project/ash_appsignal/compare/v0.2.3...v0.2.4) (2026-04-30)
+
+
+
+
+### Bug Fixes:
+
+* handle nil errors or invalid errors by Zach Daniel
+
 ## [v0.2.3](https://github.com/ash-project/ash_appsignal/compare/v0.2.2...v0.2.3) (2026-04-30)
 
 
