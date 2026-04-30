@@ -80,22 +80,15 @@ defmodule AshAppsignal do
     end
 
     try do
-      error =
-        error
-        |> Ash.Error.to_error_class()
-        |> case do
-          %Ash.Error.Unknown{} = unknown -> unknown
-          %{errors: [error]} -> error
-          error -> error
-        end
+      reported_error = normalize_error(error)
 
       stacktrace =
-        case error do
+        case reported_error do
           %{stacktrace: %{stacktrace: stacktrace}} -> stacktrace
           _other -> opts[:stacktrace]
         end
 
-      Appsignal.Span.add_error(current_appsignal_span(), error, stacktrace)
+      Appsignal.Span.add_error(current_appsignal_span(), reported_error, stacktrace)
     after
       if needs_span? do
         stop_span()
@@ -103,6 +96,21 @@ defmodule AshAppsignal do
     end
 
     :ok
+  end
+
+  defp normalize_error(nil) do
+    nil
+  end
+
+  defp normalize_error(error) do
+    case Ash.Error.to_error_class(error) do
+      %Ash.Error.Unknown{} = unknown -> unknown
+      %{errors: [single]} -> single
+      other -> other
+    end
+  rescue
+    _coercion_error ->
+      error
   end
 
   defp current_appsignal_span do
