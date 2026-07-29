@@ -80,13 +80,7 @@ defmodule AshAppsignal do
     end
 
     try do
-      reported_error = normalize_error(error)
-
-      stacktrace =
-        case reported_error do
-          %{stacktrace: %{stacktrace: stacktrace}} -> stacktrace
-          _other -> opts[:stacktrace]
-        end
+      {reported_error, stacktrace} = reported_error_and_stacktrace(error, opts[:stacktrace])
 
       Appsignal.Span.add_error(current_appsignal_span(), reported_error, stacktrace)
     after
@@ -98,12 +92,27 @@ defmodule AshAppsignal do
     :ok
   end
 
-  defp normalize_error(nil) do
+  @doc false
+  # The stacktrace reported to Appsignal is, in order of preference: the
+  # stacktrace the error was originally created with, the stacktrace provided
+  # by the caller (e.g. `__STACKTRACE__` from Ash's tracer), and only as a
+  # last resort the stacktrace on the normalized error, which may have been
+  # captured at normalization time and point here rather than the raise site.
+  def reported_error_and_stacktrace(error, stacktrace) do
+    reported_error = normalize_error(error, stacktrace)
+
+    stacktrace =
+      error_stacktrace(error) || stacktrace || error_stacktrace(reported_error)
+
+    {reported_error, stacktrace}
+  end
+
+  defp normalize_error(nil, _stacktrace) do
     nil
   end
 
-  defp normalize_error(error) do
-    case Ash.Error.to_error_class(error) do
+  defp normalize_error(error, stacktrace) do
+    case Ash.Error.to_error_class(error, stacktrace: stacktrace) do
       %Ash.Error.Unknown{} = unknown -> unknown
       %{errors: [single]} -> single
       other -> other
@@ -112,6 +121,9 @@ defmodule AshAppsignal do
     _coercion_error ->
       error
   end
+
+  defp error_stacktrace(%{stacktrace: %{stacktrace: [_ | _] = stacktrace}}), do: stacktrace
+  defp error_stacktrace(_other), do: nil
 
   defp current_appsignal_span do
     Appsignal.Tracer.current_span() || Process.get(:parent_appsignal_span)
