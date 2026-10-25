@@ -11,6 +11,15 @@ See [Conventional Commits](Https://conventionalcommits.org) for commit guideline
 
 <!-- changelog -->
 
+## [v0.2.5](https://github.com/ash-project/ash_appsignal/compare/v0.2.4...v0.2.5) (2026-10-25)
+
+
+
+
+### Bug Fixes:
+
+* retain stacktrace when reporting errors by Zach Daniel
+
 ## [v0.2.4](https://github.com/ash-project/ash_appsignal/compare/v0.2.3...v0.2.4) (2026-04-30)
 
 
